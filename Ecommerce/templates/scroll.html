@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Card with Image Carousel</title>
+  <style>
+    .product-card {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    .image-gallery {
+      text-align: center;
+    }
+
+    #main-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .thumbnails {
+      margin-top: 8px;
+    }
+
+    .thumbnails img {
+      width: 60px;
+      height: auto;
+      margin: 0 4px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .product-details {
+      margin-top: 16px;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .product-card {
+        width: 100%;
+        padding: 8px;
+      }
+
+      .thumbnails img {
+        width: 40px;
+        margin: 0 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="product-card">
+    <div class="image-gallery">
+      <img id="main-image" src="image1.jpg" alt="Product Image">
+      <div class="thumbnails">
+        <img src="hp.png" alt="Thumbnail 1" onclick="changeImage('hp.png')">
+        <img src="ipad.png" alt="Thumbnail 2" onclick="changeImage('ipad.png')">
+        <img src="ipad1.png" alt="Thumbnail 3" onclick="changeImage('ipad1.png')">
+      </div>
+    </div>
+    <div class="product-details">
+      <h2>Product Name</h2>
+      <p class="price">$99.99</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById('main-image').src = src;
+    }
+  </script>
+</body>
+</html>

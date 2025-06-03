@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OTP Verification</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient( #d6e3e4, #05edf5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .otp-container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 25px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    input[type="text"] {
+      letter-spacing: 10px;
+      font-size: 24px;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #635bac;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #55157b;
+    }
+
+    .resend {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    .resend a {
+      color: #6a1b9a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .resend a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="otp-container">
+    <h2>OTP Verification</h2>
+    <p>Enter the 4-digit code sent to your registered email or mobile.</p>
+    <form action="/register3" method="POST">
+      <input type="hidden" name="username" value="{{ username }}">
+      <input type="hidden" name="fullname" value="{{ fullname }}">
+      <input type="hidden" name="email" value="{{ email }}">
+      <input type="hidden" name="mobile" value="{{ mobile }}">
+      <input type="hidden" name="password" value="{{ password }}">
+      <input type="hidden" name="otp" value="{{ otp }}">
+      <input type="text" name="cotp" maxlength="4" pattern="\d{4}" required placeholder="Enter OTP">
+      <h1><button type="submit">Verify OTP</button></h1>
+    </form>
+    <div class="resend">
+      Didn't receive the code? <a href="/resend-otp">Resend OTP</a>
+    </div>
+  </div>
+<script>
+  var data = "{{ msg }}";
+    if (data=="Invalid") {
+      alert("Invalid OTP/n Please Enter New OTP...")
+    }
+</script>
+</body>
+</html>

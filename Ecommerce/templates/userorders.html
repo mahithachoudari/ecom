@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - My E-Commerce Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .cart-header,
+    .cart-item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .cart-header {
+      font-weight: bold;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+
+    .cart-item input {
+      width: 50px;
+      padding: 5px;
+      text-align: center;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .checkout-btn-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    .cart-header,
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr; /* Updated for 6 columns */
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My E-Commerce Store</h1>
+  <p>Your Shopping Cart</p>
+</header>
+
+<nav>
+  <a href="/home">Home</a>
+  <a href="/userhome2/{{username}}">Products</a>
+  <a href="/home">Logout</a>
+</nav>
+
+<div class="cart-container">
+  <div class="cart-header">
+    <div>Product ID</div>
+    <div>Product Name</div>
+    <div>Price</div>
+    <div>Quantity</div>
+    <div>Order Date</div>
+  </div>
+
+  {% for item in data %}
+  <div class="cart-item">
+    <div>{{item[3]}}</div>
+    <div>{{item[4]}}</div>
+    <div>₹ {{item[5]}}</div>
+    <div>{{item[6]}}</div>
+    <div>{{item[1]}}</div>
+  </div>
+  {% endfor %}
+</div>
+
+<footer>
+  <p>&copy; 2025 My E-Commerce Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html> 
